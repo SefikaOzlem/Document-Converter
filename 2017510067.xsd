@@ -1,0 +1,100 @@
+<xsd:schema  xmlns:xsd="http://www.w3.org/2001/XMLSchema" >
+  <xsd:element name="departments">
+    <xsd:complexType>
+      <xsd:sequence>
+       <xsd:element name="university" maxOccurs="unbounded">
+         <xsd:complexType>
+           <xsd:sequence>
+             <xsd:element name="item" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="name">
+                    <xsd:complexType> 
+                     <xsd:simpleContent>
+                      <xsd:extension base="xsd:string">
+                       <xsd:attribute name="lang">
+                         <xsd:simpleType>
+                          <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value="en"/>
+                            <xsd:enumeration value=""/>
+                          </xsd:restriction>
+                         </xsd:simpleType>
+                       </xsd:attribute>
+                       <xsd:attribute name="second">
+                        <xsd:simpleType>
+                         <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="NO"/>
+                           <xsd:enumeration value="İkinci Öğretim"/>
+                         </xsd:restriction>  
+                        </xsd:simpleType>
+                       </xsd:attribute>
+                      </xsd:extension>
+                     </xsd:simpleContent>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="period" type="xsd:positiveInteger"/>     
+                  <xsd:element name="quota"> 
+                    <xsd:complexType>
+                        <xsd:simpleContent>
+                          <xsd:extension base="xsd:unsignedByte">
+                            <xsd:attribute name="spec" type="xsd:string" use="required" />
+                          </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="field">
+                   <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:enumeration value="SAY"/>
+                      <xsd:enumeration value="EA"/>
+                      <xsd:enumeration value="SÖZ"/>
+                      <xsd:enumeration value="DİL"/>
+                    </xsd:restriction>
+                   </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="last_min_score">
+                   <xsd:complexType>
+                    <xsd:simpleContent>
+                     <xsd:extension base="xsd:string">
+                       <xsd:attribute name="order" type="xsd:string" use="required"/>
+                     </xsd:extension>
+                    </xsd:simpleContent>
+                   </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="grant">
+                   <xsd:simpleType>
+                     <xsd:restriction base="xsd:string">
+                       <xsd:enumeration value="25"/>
+                       <xsd:enumeration value ="50"/>
+                       <xsd:enumeration value="100"/>
+                       <xsd:enumeration value=""/>
+                     </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                </xsd:sequence>
+                <xsd:attribute name="Id" >
+                 <xsd:simpleType>
+                   <xsd:restriction base="xsd:string">
+                     <xsd:pattern value="[0-9]{9}"/>
+                   </xsd:restriction>
+                 </xsd:simpleType>
+               </xsd:attribute>
+               <xsd:attribute name="faculty" type="xsd:string"/>
+              </xsd:complexType>
+             </xsd:element>
+            </xsd:sequence>
+            <xsd:attribute name="name" type="xsd:string" use="required"/>
+            <xsd:attribute name="uType" >
+             <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="Devlet"/>
+                  <xsd:enumeration value="Vakıf"/>
+                </xsd:restriction>
+             </xsd:simpleType>
+            </xsd:attribute>
+         </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>                       
